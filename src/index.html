@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ngân hàng Đề Tin học - Minh Đăng IT</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root {
+        --color-primary-600: #0891b2; /* cyan-600 */
+        --color-primary-700: #0e7490; /* cyan-700 */
+        --color-primary-50: #ecfeff; /* cyan-50 */
+        --color-background: #f1f5f9; /* slate-100 */
+        --color-surface: #ffffff; /* white */
+        --color-border: #e2e8f0; /* slate-200 */
+        --color-border-hover: #cbd5e1; /* slate-300 */
+        --color-ring: #7dd3fc; /* sky-300 */
+        
+        --color-text-primary: #0f172a; /* slate-900 */
+        --color-text-secondary: #475569; /* slate-600 */
+        --color-text-tertiary: #94a3b8; /* slate-400 */
+        --color-text-on-primary: #ffffff;
+
+        --color-disabled-bg: #e2e8f0; /* slate-200 */
+        --color-disabled-text: #94a3b8; /* slate-400 */
+        
+        --color-success: #16a34a; /* green-600 */
+        --color-success-light: #f0fdf4; /* green-50 */
+        --color-error-text: #b91c1c; /* red-800 */
+        --color-error-bg: #fee2e2; /* red-100 */
+        --color-error-border: #fecaca; /* red-200 */
+
+        --border-radius-lg: 0.75rem; /* rounded-lg */
+        --border-radius-md: 0.5rem; /* rounded-md */
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      }
+      
+      body {
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: var(--color-background);
+        color: var(--color-text-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Form element styling */
+      input, select, textarea {
+        background-color: var(--color-surface) !important;
+        color: var(--color-text-primary) !important;
+        border-color: var(--color-border) !important;
+        transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+      }
+      input:focus, select:focus, textarea:focus {
+          border-color: var(--color-primary-600) !important;
+          box-shadow: 0 0 0 3px var(--color-ring) !important;
+          outline: none !important;
+      }
+      textarea::placeholder {
+        color: var(--color-text-tertiary) !important;
+      }
+      select option {
+        background: var(--color-surface);
+        color: var(--color-text-primary);
+      }
+
+      /* Bulletproof Custom Checkbox Implementation */
+      .custom-checkbox-container .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      .custom-checkbox-visual {
+        display: inline-block;
+        width: 1.15em;
+        height: 1.15em;
+        border: 0.1em solid var(--color-border);
+        border-radius: 0.25em;
+        background-color: var(--color-surface);
+        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .custom-checkbox-container:hover .custom-checkbox-visual {
+        border-color: var(--color-border-hover);
+      }
+      .custom-checkbox-container input:checked ~ .custom-checkbox-visual {
+        background-color: var(--color-primary-600);
+        border-color: var(--color-primary-600);
+      }
+      .custom-checkbox-visual::before {
+        content: '';
+        position: absolute;
+        display: none;
+        left: 0.3em;
+        top: 0.1em;
+        width: 0.25em;
+        height: 0.55em;
+        border: solid white;
+        border-width: 0 0.15em 0.15em 0;
+        transform: rotate(45deg);
+      }
+      .custom-checkbox-container input:checked ~ .custom-checkbox-visual::before {
+        display: block;
+      }
+      .custom-checkbox-container input:focus ~ .custom-checkbox-visual {
+        outline: 2px solid var(--color-ring);
+        outline-offset: 2px;
+      }
+      
+      /* Modern scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1; /* slate-300 */
+        border-radius: 5px;
+        border: 2px solid var(--color-background);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8; /* slate-400 */
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0",
+    "docx": "https://aistudiocdn.com/docx@^9.5.1",
+    "react-dropzone": "https://aistudiocdn.com/react-dropzone@^14.3.8"
+  }
+}
+</script>
+</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
