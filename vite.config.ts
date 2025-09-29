@@ -7,8 +7,9 @@ export default defineConfig(({ mode }) => {
   // This is a common workaround when Node.js types are not properly configured in tsconfig.json.
   const env = loadEnv(mode, (process as any).cwd(), '');
   return {
-    // IMPORTANT: Update this with your repository name for GitHub Pages deployment
-    base: '/de-tin-hoc/', 
+    // Để triển khai trên tên miền riêng (ví dụ: detin.leminhdang.com),
+    // đường dẫn cơ sở (base path) phải là '/'.
+    base: '/', 
     plugins: [react()],
     define: {
       'process.env.API_KEY': JSON.stringify(env.API_KEY)
