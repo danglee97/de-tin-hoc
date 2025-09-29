@@ -14,7 +14,7 @@ export interface ExamGenerationParams {
 }
 
 // FIX: Use import.meta.env for Vite environment variables. The variable in the .env file must be named VITE_API_KEY.
-const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.API_KEY });
 
 export const generateExam = async (params: ExamGenerationParams): Promise<GeneratedExam> => {
   // FIX: Use the recommended 'gemini-2.5-flash' model for text tasks.
